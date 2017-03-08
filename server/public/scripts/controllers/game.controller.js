@@ -1,9 +1,8 @@
-colorBlocks.controller('GameController', function() {
-
+colorBlocks.controller('GameController', ['$http', 'DataFactory', function($http, DataFactory) {
 console.log('game controller running');
 
 var self = this;
-self.colors = ['red', 'blue', 'magenta', 'green', 'pink'];
+self.colors = DataFactory.getColors;
 
 // start game
 init();
@@ -12,7 +11,7 @@ init();
 function init() {
   self.messageText = "";
   self.currentColor = self.colors[randomNumber(0, self.colors.length - 1)];
-  self.colorPrompt = 'Can you find the ' + self.currentColor + ' block?'
+  self.colorPrompt = 'Can you find the ' + self.currentColor + ' block?';
 }
 
 // click handler for guessing colors
@@ -23,10 +22,10 @@ self.handleInput = function(clickedColor) {
   } else {
     self.messageText = 'Oh no! You guessed wrong!';
   }
-}
+};
 
 //UTILITY FUNCTIONS
 function randomNumber(min, max){
     return Math.floor(Math.random() * (1 + max - min) + min);
 }
-});
+}]);
