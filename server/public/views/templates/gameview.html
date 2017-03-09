@@ -1,14 +1,9 @@
 <div class="row" id="gameview">
-  <h1>{{game.colorPrompt}}</h1>
-
-  <h3 ng-if="game.messageText != ''" class="alert alert-warning">{{game.messageText}}</h3>
-
-  <div id="button-container">
-    <div class="color-button" ng-repeat="color in game.colors.list" ng-style="{background: color}" ng-click="game.handleInput(color)"></div>
-    <!-- {{color.color_name}} -->
-    {{color}}
-    <!-- <hr>{{game.colors.color_name}} -->
-    <hr>
-        <!-- {{color_name}} -->
-  </div>
+    <h1>{{game.colorPrompt}}</h1>
+    <h3 ng-if="game.messageText != ''" class="alert alert-warning">{{game.messageText}}</h3>
+    <div id="button-container">
+        <div class="color-button" ng-repeat="color in game.colors.list" ng-style="{background: color.color_name}" ng-click="game.handleInput(color)">
+        </div>
+        <hr>
+    </div>
 </div>
