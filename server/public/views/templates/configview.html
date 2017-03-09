@@ -1,5 +1,9 @@
-<div class="row">
-  <h1>Settings</h1>
+<div class="row" id="gameview">
+  <h1>{{settings.colorPrompt}}</h1>
 
-  Pro Mode To Do: UI to add colors to the game.
+  <h3 ng-if="settings.messageText != ''" class="alert alert-warning">{{settings.messageText}}</h3>
+
+  <div id="button-container">
+    <div class="color-button" ng-repeat="color in settings.colors" ng-style="{background: color}" ng-click="settings.handleInput(color)"></div>
+  </div>
 </div>
